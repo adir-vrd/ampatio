@@ -23,6 +23,8 @@ print("Total time for int loop: ", round(pe-ps, 3))
 
 
 
+
+
 #INT
 #  #read
 #  int.from_bytes(region[4*offset:4*offset+4], byteorder='little', signed=False)

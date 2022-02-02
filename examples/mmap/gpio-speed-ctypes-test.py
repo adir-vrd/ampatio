@@ -24,6 +24,8 @@ print("Total time for ctype loop: ", round(pe-ps, 3))
 
 
 
+
+
 #CTYPES
 #  #read
 #  ctypes.c_uint32.from_buffer(region, (offset*4)).value

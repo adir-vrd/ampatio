@@ -23,6 +23,8 @@ print("Total time for struct loop: ", round(pe-ps, 3))
 
 
 
+
+
 #STRUCT
 #  #read
 #  struct.unpack("<L", self.region[4*offset:4*offset+4])[0]
