@@ -1,0 +1,48 @@
+AMPatio
+=======
+simple easy to use python alternative for access AMLogic based socs low level perpherals
+for How-To access the GPIO take a look at the examples folder
+
+
+! NOTE !
+========
+Most of the hardware that will be present soon in the examples folder will used to pass data by BitBang method only for now.
+
+To use SPI, ADC, PWM... we need to set most of meson modules in the kernel as dynamicly loaded.
+To do so, it's require from us to recompile the Linux kernel, but until i would do so i wrote only the GPIO part.
+
+The next list is the builtin kernel modules need to be markd as dynamic include: (also look at /sys/devices/platform/soc)
+- ADC
+- UART
+- SPI
+- IIC
+- PWM
+- IR (Blaster & Decoder)
+
+
+2Do:
+====
+-- Package setup with path
+
+Basic:
+`-gpio.py
+  =======
+  -- add occupied and release pin functions (record json file in /tmp folder directly in memory)
+  -- add buffer read & write of bytes / arrays
+  ##
+  -+ do more efficent error handaling
+  ##
+  -- create relevant dungen functions & improved by decoration
+
+Analog:
+`-adc.py
+
+Serial:
+|-uart.py
+|-iic.py (i2c)
+`-spi.py
+
+Pulse:
+|-pwm.py
+|-irb.py (InfraRed Blaster)
+`-ird.py (InfraRed Decoder)
