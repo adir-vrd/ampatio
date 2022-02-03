@@ -16,6 +16,7 @@
 
 
 import json as _json
+from importlib import resources as _il_res
 
 #__all__ = [ "gpio", "spi", "iic", "uart", "pwm", "irb", "ird", "adc" ]
 
@@ -27,5 +28,7 @@ from . import gpio
 #from . import pwm
 #from . import adc
 
+from . import boards as _boards
+
 # board selector function:
-boards = lambda board: _json.load(open("AMPatio/boards/"+board+".json", "r"))
+board_loads = lambda _board: _json.load(open(_il_res.path(_boards, _board+".json"), "r"))
