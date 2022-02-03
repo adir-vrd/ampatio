@@ -1,7 +1,9 @@
 AMPatio
 =======
-simple easy to use python alternative for access AMLogic based socs low level perpherals
-for How-To access the GPIO take a look at the examples folder
+Clean & pure Python library for controlling & manipulate digital IO pins on Amlogic SoC based boards.
+
+this library make it simple to use python for accessing AMLogic based socs low level perpherals in linux
+for How-To access the GPIO take a look at the examples folder.
 
 
 ! NOTE !
@@ -32,7 +34,7 @@ Basic:
   ##
   -+ do more efficent error handaling
   ##
-  -- create relevant dungen functions & improved by decoration
+  -- add relevant dungen functions
 
 Analog:
 `-adc.py
