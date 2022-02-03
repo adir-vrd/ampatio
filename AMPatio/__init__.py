@@ -28,7 +28,7 @@ from . import gpio
 #from . import pwm
 #from . import adc
 
-from . import boards as _boards
+from . import boards
 
 # board selector function:
-board_loads = lambda _board: _json.load(open(_il_res.path(_boards, _board+".json"), "r"))
+board_loads = lambda _brd: _json.load(open(_il_res.path(boards, _brd+".json"), "r"))
