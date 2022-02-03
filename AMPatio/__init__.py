@@ -29,3 +29,5 @@ from . import gpio
 
 # board selector function:
 boards = lambda board: _json.load(open("AMPatio/boards/"+board+".json", "r"))
+
+version = 0.0.3

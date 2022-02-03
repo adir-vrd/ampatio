@@ -2,7 +2,7 @@ AMPatio
 =======
 Clean & pure Python library for controlling & manipulate digital IO pins on Amlogic SoC based boards.
 
-this library make it simple to use python for accessing AMLogic based socs low level perpherals in linux
+this library only in it's diapers and allready make it simple to use python for accessing AMLogic based socs low level perpherals in linux.
 for How-To access the GPIO take a look at the examples folder.
 
 
