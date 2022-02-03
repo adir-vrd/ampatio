@@ -8,7 +8,7 @@ import AMPatio as amp
 
 # get & set the board file name from AMPatio/boards folder
 # my board is Odroid C4 Rev1 so . . . what's yours?
-C4 = amp.boards('Odroid_C4')
+C4 = amp.board_loads('Odroid_C4')
 amp.gpio.Setup(C4)
 
 # set the pin
