@@ -25,12 +25,13 @@ The next list is the builtin kernel modules need to be markd as dynamic include:
 2Do:
 ====
 -- Package setup with path
+-- Publish in relevant forums
 
 Basic:
 `-gpio.py
   =======
-  -- add occupied and release pin functions (record json file in /tmp folder directly in memory)
-  -- add buffer read & write of bytes / arrays
+  -- add occupied and release pin functions (record json file in /tmp folder)
+  -- add function to do buffer read & write
   ##
   -+ do more efficent error handaling
   ##
@@ -48,3 +49,15 @@ Pulse:
 |-pwm.py
 |-irb.py (InfraRed Blaster)
 `-ird.py (InfraRed Decoder)
+
+
+Performence
+===========
+Importent! i did test my lib only on my Odroid C4 board.
+
+The speed test file located in the examples folder.
+
+The test is to drive selected pin to on & off for 1 milion times.
+which result in 4.582 Seconds
+
+Not bad at all for the slowly snake we play with :)
