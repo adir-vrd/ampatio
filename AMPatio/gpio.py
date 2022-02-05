@@ -19,7 +19,10 @@
 from mmap import mmap as _mm
 from importlib import import_module as _il
 #from pkgutil import get_data as _pugd
+#from ast import literal_eval as _astle
 from ctypes import c_uint32 as _ct
+
+__name__ = "GPIO"
 
 class Setup():
   def __init__(self, board):
@@ -28,7 +31,8 @@ class Setup():
     global device, region
 
     device = _il("AMPatio.models."+board["SOC"]+".GPIO")
-    #device = _pugd(__package__, "models/"+board["SOC"]+"/GPIO.py")
+    #device_file = _pugd(__package__, "models/"+board["SOC"]+"/"+__name__+".py")
+    #device = _astle(device_file.decode("UTF-8"))
 
     device.headers = board["GPIO"]
     region = [*range(2)] #list(range(2))
