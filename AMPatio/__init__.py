@@ -16,7 +16,9 @@
 
 
 import json as _json
-from importlib import resources as _il_res
+#from importlib import resources as _il_res
+import pkgutil as _pu
+
 
 #__all__ = [ "gpio", "spi", "iic", "uart", "pwm", "irb", "ird", "adc" ]
 
@@ -28,7 +30,9 @@ from . import gpio
 #from . import pwm
 #from . import adc
 
-from . import boards
+#from . import boards
 
 # board selector function:
-board_loads = lambda _brd: _json.load(open(_il_res.path(boards, _brd+".json"), "r"))
+#board_loads = lambda _brd: _json.load(open(_il_res.path(boards, _brd+".json"), "r"))
+
+board_loads = lambda _brd: _json.load(open(_pu.get_data(__name__, "boards/"+_brd+".json"), "r"))

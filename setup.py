@@ -14,7 +14,7 @@ setup(
     license = "ISC",
     keywords = "AMLogic peripherals gpio",
     url = "https://github.com/adir-vrd/ampatio",
-    packages=['AMPatio'], # 'AMPatio/boards', 'AMPatio/models'],
+    packages=['AMPatio'],
     package_data={'AMPatio': ['boards/*', 'models/*/*']},
     include_package_data=True,
     long_description=read('README'),
