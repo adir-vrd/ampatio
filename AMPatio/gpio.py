@@ -31,6 +31,8 @@ class Setup():
     global device, region
 
     device = _il("AMPatio.models."+board["SOC"]+".GPIO")
+    # importlib expose the readed file as "models" to the user i don't like side effect
+    # we need to complete the move to pkgutil..
     #device_file = _pugd(__package__, "models/"+board["SOC"]+"/"+__name__+".py")
     #device = _astle(device_file.decode("UTF-8"))
 
