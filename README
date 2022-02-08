@@ -22,11 +22,6 @@ The next list is the builtin kernel modules need to be markd as dynamic include:
 - IR (Blaster & Decoder)
 
 
-2Do:
-====
--+ Package setup with path
--- Publish in relevant forums
-
 Basic:
 `-gpio.py
   =======
