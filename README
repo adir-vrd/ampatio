@@ -2,43 +2,36 @@ AMPatio
 =======
 Clean & pure Python library for controlling & manipulate digital IO pins on Amlogic SoC based boards.
 
-this library only in it's diapers and allready make it simple to use python for accessing AMLogic based socs low level perpherals in linux.
-for How-To access the GPIO take a look at the examples folder.
+this library only in it's diapers and allready make it simple
+to use python for accessing AMLogic based socs low level perpherals in linux.
+
+for How-To access the GPIO take a fast look at the examples folder.
 
 
-NOTE!
-=====
+2-Do
+====
+gpio:
+- move from importlib to pkgutil
+- do more efficent error handaling
+- add occupied and release pin functions (record json file in /tmp folder)
+- add function to do buffer read & write
+- add relevant dungen functions
+
+general 2-Do note!
+------------------
 Most of the hardware that will be present soon in the examples folder will used to pass data by BitBang method only for now.
 
 To use SPI, ADC, PWM... we need to set most of meson modules in the kernel as dynamicly loaded.
 To do so, it's require from us to recompile the Linux kernel, but until i would do so i wrote only the GPIO part.
 
 The next list is the builtin kernel modules need to be markd as dynamic include: (also look at /sys/devices/platform/soc)
-- ADC
-- UART
-- SPI
-- IIC
-- PWM
-- IR (Blaster & Decoder)
-
-
-2-Do
-====
-gpio:
--- add occupied and release pin functions (record json file in /tmp folder)
--- add function to do buffer read & write
--+ do more efficent error handaling
--- add relevant dungen functions
-
-adc:
-
-uart:
-iic: (i2c)
-spi:
-
-pwm:
-irb: (InfraRed Blaster)
-ird: (InfraRed Decoder)
+adc
+uart
+iic (i2c)
+spi
+pwm
+irb (InfraRed Blaster)
+ird (InfraRed Decoder)
 
 
 Performence
