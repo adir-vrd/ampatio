@@ -13,8 +13,8 @@ for How-To access the GPIO take a fast look at the examples folder.
 gpio:
 - move from importlib to pkgutil
 - do more efficent error handaling
-- add occupied and release pin functions (record json file in /tmp folder)
-- add function to do buffer read & write
+- add occupied and release pin functions (by recording json file in /tmp folder)
+- add functions to do buffer read & write
 - add relevant dungen functions
 
 general 2-Do note!
