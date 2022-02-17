@@ -17,21 +17,21 @@ gpio:
 - add functions to do buffer read & write
 - add relevant dungen functions
 
+spi:
+- this meson module is removable but not implemented in AMPatio
+
+irb: (InfraRed Blaster)
+- this meson module is removable but not implemented in AMPatio
+
+ird: (InfraRed Decoder)
+- this meson module is removable but not implemented in AMPatio
+
 general 2-Do note!
 ------------------
 Most of the hardware that will be present soon in the examples folder will used to pass data by BitBang method only for now.
-
-To use SPI, ADC, PWM... we need to set most of meson modules in the kernel as dynamicly loaded.
+To use UART, IIC, ADC & PWM we need to set thes meson modules in the kernel as dynamicly loaded.
 To do so, it's require from us to recompile the Linux kernel, but until i would do so i wrote only the GPIO part.
-
-The next list is the builtin kernel modules need to be markd as dynamic include: (also look at /sys/devices/platform/soc)
-adc
-uart
-iic (i2c)
-spi
-pwm
-irb (InfraRed Blaster)
-ird (InfraRed Decoder)
+(also look at /sys/devices/platform/soc)
 
 
 Performence
