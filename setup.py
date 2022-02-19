@@ -1,3 +1,11 @@
+# to use it manualy type this in bash shell inside this file folder:
+# sudo python setup.py build
+# sync
+# sudo python setup.py install
+# sync
+
+
+
 import os
 from setuptools import setup
 
@@ -6,7 +14,7 @@ def read(fname):
 
 setup(
     name = "AMPatio",
-    version = "0.0.3",
+    version = "0.0.4",
     author = "Adir Vered",
     author_email = "adir.vrd@gmail.com",
     description = ("Clean & pure Python library for controlling & "
@@ -19,7 +27,7 @@ setup(
     include_package_data=True,
     long_description=read('README'),
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Alpha",
         "Topic :: Utilities",
         "License :: OSI Approved :: ISC License",
     ],

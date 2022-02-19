@@ -31,13 +31,13 @@ class Setup():
     """
     global device, region
 
-    device = _il(' '.join(["AMPatio.models.", board["SOC"], ".IRB"])
+    device = _il(' '.join(["AMPatio.models.", board["SOC"], ".IRB"]))
 
     # need to make test mechanism if the ir module is loaded and then release it before continue...
     #
 
     # check if board irb pin number isn't 0 and can be manipulated
-    if (device.blaster := board["AF"]["IRB"])
+    if (irbPin := board["AF"]["IRB"]):
       region = [*range(2)]
       size = (1024*4)
       with open("/dev/mem", "rb+") as file:
