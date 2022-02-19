@@ -18,15 +18,15 @@
 from json import loads as _jsonls
 from pkgutil import get_data as _pugd
 
-#__all__ = [ "gpio", "spi", "iic", "uart", "pwm", "irb", "ird", "adc" ]
-
 from . import gpio
 #from . import spi
 #from . import iic
 #from . import uart
-#from . import ir
+#from . import irb
 #from . import pwm
 #from . import adc
+
+#__all__ = [ "gpio", "spi", "iic", "uart", "pwm", "irb", "ird", "adc" ]
 
 # board selector function:
 board_loads = lambda _brd: _jsonls(_pugd(__name__, "boards/"+_brd+".json"))
