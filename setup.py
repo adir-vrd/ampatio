@@ -1,7 +1,7 @@
 # to use it manualy type this in bash shell inside this file folder:
 # sudo python setup.py build
 # sync
-# sudo python setup.py install
+# sudo python setup.py install_lib
 # sync
 
 
