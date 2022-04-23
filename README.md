@@ -18,10 +18,10 @@ gpio:
 - add functions to do buffer read & write
 - add relevant "dungen" functions
 
-** irb/ird: (Infra-Red Blaster/Decoder) **
+**irb/ird: (Infra-Red Blaster/Decoder)**
 - for now meson IR modules are removable in mainline kernel (Archlinux-AARCH64) but not implemented yet here.
   also need to set MUX (a.k.a. Alternative Function) before use.
-  available only with "A311D, S905D3, S905X3, S922X" SOCs based boards. (WIP) 
+  available only with "A311D, S905D3, S905X3, S922X" SOCs based boards. (WIP)
 
 ### 2-Do Major note
 Most of the hardware that will be present soon in the examples folder will used to pass data by BitBang method only for now.
