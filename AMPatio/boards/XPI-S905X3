@@ -1,5 +1,5 @@
 {
-  "SBC" : "Geniatech XPI-S905X2",
+  "SBC" : "Geniatech XPI-S905X3",
   "SOC" : "S905X3",
   "GPIO" : [
     {"_"  :null},
