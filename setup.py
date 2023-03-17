@@ -1,8 +1,11 @@
 # to use it manualy type this in bash shell inside this file folder:
+#
 #sudo python setup.py build
 #sync
+#
 #sudo python setup.py install_lib
 #sync
+#
 
 import os
 from setuptools import setup
@@ -23,7 +26,7 @@ setup(
     packages=['AMPatio'],
     package_data={'AMPatio': ['boards/*', 'models/*/*']},
     include_package_data=True,
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 4 - Alpha",
         "Topic :: Utilities",

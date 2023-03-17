@@ -1,4 +1,8 @@
-address = 0x00000000
+address = [
+  0xFFD22000,
+  0xFFD23000,
+  0xFFD24000
+  ]
 
 offsets = {}
 
