@@ -21,9 +21,8 @@ address = [
   # to all mentiond above registers offsets in this region.
   # by the datasheet we need to multipile the offset by 4 and there for
   # the offset for each register is get the 0x400 missing, got it?!
-  0xFF634000, # (0xFF634400 - 0x400)
-  # GPIO_AO
-  0xFF800000
+  0xFF634000, # GPIO (0xFF634400 - 0x400)
+  0xFF800000  # GPIO_AO
   ]
 
 offsets = {

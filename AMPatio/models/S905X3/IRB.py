@@ -1,6 +1,13 @@
-address = 0xFF800000
+address = [
+  0xFF800000
+  ]
 
-offsets = { "ADDR" : [0x53, 0x54, 0x55, 0x56] }
+offsets = {
+  "ADDR0" : 0x3,
+  "ADDR1" : 0x4,
+  "ADDR2" : 0x5,
+  "ADDR3" : 0x6
+  }
 
 presets = { "ADDR" : [
   { "BUSY" : (1<<26),

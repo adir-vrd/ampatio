@@ -1,10 +1,9 @@
 address = [
-  0xFFD1C000,
-  0xFFD1D000,
-  0xFFD1E000,
-  0xFFD1F000
-  #IIC_AO:
-  0xff805000
+  0xFFD1C000, # IIC_3
+  0xFFD1D000, # IIC_2
+  0xFFD1E000, # IIC_1
+  0xFFD1F000  # IIC_0
+  0xff805000  # IIC_AO
   ]
 
 offsets = {
