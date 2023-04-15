@@ -3,6 +3,7 @@ address = [
   0xFFD1D000, # IIC_2
   0xFFD1E000, # IIC_1
   0xFFD1F000  # IIC_0
+  #0xff806000,  # IIC_AO_S ?! i need to be confirm that..
   0xff805000  # IIC_AO
   ]
 

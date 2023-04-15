@@ -27,7 +27,7 @@ gpio:
 Most of the hardware that will be present soon in the examples folder will used to pass data by BitBang method only for now.
 To use "SPI/IIC/UART/ADC/PWM" we need to set those meson modules in the kernel as dynamically loaded.
 To do so, it's require from us to recompile the Linux kernel, but until i would do so i wrote only the GPIO part.
-(also look at /sys/devices/platform/soc)
+(also look at /sys/devices/platform/soc or /proc/iomem)
 
 
 
