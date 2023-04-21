@@ -18,11 +18,11 @@ C4 = amp.board_loads('Odroid_C4')
 amp.gpio.Setup(C4)
 
 # set the soft SPI pins on the Odroid C4 board
-CLK = amp.gpio.Pin(11) # GPIO_X 3  # SPI-Clock
-DIN = amp.gpio.Pin(12) # GPIO_X 16 # SPI-Data
-DC  = amp.gpio.Pin(13) # GPIO_X 4  # The Data OR Command set pin
-CE  = amp.gpio.Pin(15) # GPIO_X 7  # SPI-CS
-RES = amp.gpio.Pin(16) # GPIO_X 0  # Reset
+CLK = amp.gpio.Pin(11,2,2,3) # GPIO_X 3  # SPI-Clock
+DIN = amp.gpio.Pin(12,2,2,3) # GPIO_X 16 # SPI-MOSI
+DC  = amp.gpio.Pin(13,2,2,3) # GPIO_X 4  # The Data OR Command set pin
+CE  = amp.gpio.Pin(15,2,2,3) # GPIO_X 7  # SPI-CS
+RES = amp.gpio.Pin(16,2,2,3) # GPIO_X 0  # Reset
 
 # Constants parameters
 X_RANGE = 84
@@ -30,29 +30,22 @@ Y_RANGE = 48
 LCD_CONTRAST = 0xC0
 LCD_SIZE = int(X_RANGE*Y_RANGE/8)
 LCD_MEMORY = [0 for i in range(LCD_SIZE)]
-#LCD_TEMP = [0 for i in range(X_RANGE)],[0 for i in range(Y_RANGE)]
 
 # SPI function
-def send(bytes):
-  CE.off()
-  i = 0
+def send(data, i=0):
   for i in range(1,9):
-    if (bytes & 0x80):
-      DIN.on()
-    else:
-      DIN.off()
-    #delay(0.00001)
+    DIN.on() if (data & 0x80) else DIN.off()
     CLK.off()
-    #delay(0.00001)
     CLK.on()
-    bytes = bytes << 1
-  CE.on()
-  #return
+    data = data << 1
+  return
 
 # LCD functions
 def command(cmd):
+  CE.off()
   DC.off()
   send(cmd)
+  CE.on()
 
 def contrast(level):
   command(0x21)
@@ -68,10 +61,12 @@ def clear():
 def update(x=0,y=0):
   for y in range(0,int(Y_RANGE/8)):
     command(0x80)
-    command(0x40 | (y+1))
-    DC.on() # Set DC pin to on before sending data to the display row
+    command(0x40|(y+1))
     for x in range(X_RANGE):
-      send(LCD_MEMORY[y*X_RANGE + x])
+      CE.off()
+      DC.on()
+      send(LCD_MEMORY[y*X_RANGE+x])
+      CE.on()
 
 def reset():
   CE.on()
@@ -130,23 +125,11 @@ def drawRect(x1,y1,x2,y2):
   drawLine(x1,y2,x2,y2)
 
 # Drawing test...
-from time import process_time as prst
 reset()
 delay(2)
-PS = prst()
-for i in range(10):
-  pnt = i
-  drawRect(pnt,pnt,pnt+8,pnt+8)
+drawPoint(4,4)
+update()
+for p in range(10):
+  drawRect(p,p,p+8,p+8)
   update()
-  clear()
-  drawRect(pnt,pnt,pnt+8,pnt+8)
-  update()
-  clear()
-  drawRect(pnt,pnt,pnt+8,pnt+8)
-  update()
-  clear()
-  drawRect(pnt,pnt,pnt+8,pnt+8)
-  update()
-  clear()
-PE = prst()
-print("Total time to draw: ", round(PE-PS, 3))
+#  clear()
