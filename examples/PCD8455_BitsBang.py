@@ -39,100 +39,95 @@ def send(bytes):
   for i in range(1,9):
     if (bytes & 0x80):
       DIN.on()
-		else:
-  		DIN.off()
+    else:
+      DIN.off()
     #delay(0.00001)
-  	CLK.off()
+    CLK.off()
     #delay(0.00001)
-  	CLK.on()
-  	bytes = bytes << 1
+    CLK.on()
+    bytes = bytes << 1
   CE.on()
   #return
 
 # LCD functions
 def command(cmd):
-	DC.off()
-	send(cmd)
+  DC.off()
+  send(cmd)
 
 def contrast(level):
-	command(0x21)
-	command(0x14)
-	command(level)
-	command(0x20)
-	command(0x0C)
+  command(0x21)
+  command(0x14)
+  command(level)
+  command(0x20)
+  command(0x0C)
 
 def clear():
-	for i in range(len(LCD_MEMORY)):
-			LCD_MEMORY[i]=0
+  for i in range(len(LCD_MEMORY)):
+    LCD_MEMORY[i]=0
 
 def update(x=0,y=0):
-	for y in range(0,int(Y_RANGE/8)):
-		command(0x80)
-		command(0x40 | (y+1))
+  for y in range(0,int(Y_RANGE/8)):
+    command(0x80)
+    command(0x40 | (y+1))
     DC.on() # Set DC pin to on before sending data to the display row
-		for x in range(X_RANGE):
-			send(LCD_MEMORY[y*X_RANGE + x])
+    for x in range(X_RANGE):
+      send(LCD_MEMORY[y*X_RANGE + x])
 
 def reset():
-	CE.on()
-	RES.off()
-	delay(1)
-	RES.on()
-	delay(1)
-	command(0x21)
-	command(0xC8)
-	command(0x04)
-	command(0x40)
-	command(0x12)
-	command(0xE4) # Set Display offset line 1
-	command(0x45) # Set Display offset line 2: shiftet 5  pixels up and then use lines 1 to 6
-	command(0x20)
-	command(0x08)
-	command(0x0C)
-	contrast(LCD_CONTRAST)
-	clear()
-	update()
+  CE.on()
+  RES.off()
+  delay(1)
+  RES.on()
+  delay(1)
+  command(0x21)
+  command(0xC8)
+  command(0x04)
+  command(0x40)
+  command(0x12)
+  command(0xE4) # Set Display offset line 1
+  command(0x45) # Set Display offset line 2: shiftet 5  pixels up and then use lines 1 to 6
+  command(0x20)
+  command(0x08)
+  command(0x0C)
+  contrast(LCD_CONTRAST)
+  clear()
+  update()
 
 # CGI functions
 def drawPoint(x,y):
-	row = int(y/8)
-	i = x + row * 84
-	LCD_MEMORY[i] |= 1 << (y % 8)
+  row = int(y/8)
+  i = x + row * 84
+  LCD_MEMORY[i] |= 1 << (y % 8)
 
 def drawLine(x1,y1,x2,y2):
-	dx=abs(x2-x1)
-	dy=abs(y2-y1)
-	if(x1 < x2):
-	  sx=1
-	else:
-	  sx=-1
-	if(y1 < y2):
-	  sy=1
-	else:
-	  sy=-1
-	err=dx-dy
-	while(1):
-		drawPoint(x1,y1)
-		if((x1==x2) & (y1==y2)):
-			break
-		e2 = 2*err
-		if(e2 > -dy):
-			err = err-dy
-			x1 = x1+sx
-		if(e2 < dx):
-			err=err+dx
-			y1=y1+sy
+  dx=abs(x2-x1)
+  dy=abs(y2-y1)
+  if(x1 < x2):
+    sx=1
+  else:
+    sx=-1
+  if(y1 < y2):
+    sy=1
+  else:
+    sy=-1
+  err=dx-dy
+  while(1):
+    drawPoint(x1,y1)
+    if((x1==x2) & (y1==y2)):
+      break
+    e2 = 2*err
+    if(e2 > -dy):
+      err = err-dy
+      x1 = x1+sx
+    if(e2 < dx):
+      err=err+dx
+      y1=y1+sy
 
 def drawRect(x1,y1,x2,y2):
-	drawLine(x1,y1,x1,y2)
-	drawLine(x1,y1,x2,y1)
-	drawLine(x2,y1,x2,y2)
-	drawLine(x1,y2,x2,y2)
-
-
-
-
-
+  drawLine(x1,y1,x1,y2)
+  drawLine(x1,y1,x2,y1)
+  drawLine(x2,y1,x2,y2)
+  drawLine(x1,y2,x2,y2)
 
 # Drawing test...
 from time import process_time as prst
