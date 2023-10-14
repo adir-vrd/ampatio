@@ -33,7 +33,7 @@ offsets = {
     "O"     : 0x24,
     "I"     : 0x28,
     "UP"    : 0x2C,
-    "UP_EN" : 0x2C,
+    "UP_EN" : 0x2C
     },
   # GPIO_DIF
   "DIF" : {
@@ -41,7 +41,7 @@ offsets = {
     "O"     : 0x164,
     "I"     : 0x168,
     "UP"    : 0x13F,
-    "UP_EN" : 0x14D,
+    "UP_EN" : 0x14D
     },
   # GPIO_CARD
   "CARD" : {
@@ -49,7 +49,7 @@ offsets = {
     "O"     : 0x10D,
     "I"     : 0x10E,
     "UP"    : 0x13C,
-    "UP_EN" : 0x14A,
+    "UP_EN" : 0x14A
     },
   # GPIO_BOOT
   "BOOT" : {
@@ -57,7 +57,7 @@ offsets = {
     "O"     : 0x116,
     "I"     : 0x117,
     "UP"    : 0x13C,
-    "UP_EN" : 0x14A,
+    "UP_EN" : 0x14A
     },
   # GPIO_H
   "H" : {
@@ -65,7 +65,7 @@ offsets = {
     "O"     : 0x116,
     "I"     : 0x117,
     "UP"    : 0x13B,
-    "UP_EN" : 0x149,
+    "UP_EN" : 0x149
     },
   # GPIO_DV
   "DV" : {
@@ -73,7 +73,7 @@ offsets = {
     "O"     : 0x113,
     "I"     : 0x114,
     "UP"    : 0x13A,
-    "UP_EN" : 0x148,
+    "UP_EN" : 0x148
     },
   # GPIO_Y
   "Y" : {
@@ -81,7 +81,7 @@ offsets = {
     "O"     : 0x110,
     "I"     : 0x111,
     "UP"    : 0x13D,
-    "UP_EN" : 0x14B,
+    "UP_EN" : 0x14B
     },
   # GPIO_X
   "X" : {
@@ -89,7 +89,7 @@ offsets = {
     "O"     : 0x10D,
     "I"     : 0x10E,
     "UP"    : 0x13E,
-    "UP_EN" : 0x14C,
+    "UP_EN" : 0x14C
     },
   }
 

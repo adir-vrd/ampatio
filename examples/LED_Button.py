@@ -20,7 +20,7 @@ BTN = amp.gpio.BTN(16)
 while 1:
   if BTN.level() == 0: # 0 = low level (when the button is pressd)
     LED.on()
-    delay(2) # wait 1 sec
+    delay(2) # the LED will lit for 2 sec & then we end the loop
     break
 
 LED.off()

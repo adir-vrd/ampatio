@@ -32,7 +32,7 @@ offsets = {
     "O"     : 0x0D,
     "I"     : 0x0A,
     "UP"    : 0x0B,
-    "UP_EN" : 0x0C,
+    "UP_EN" : 0x0C
     #"DS_0A" : 0x07,
     #"DS_0B" : 0x08,
     #"MUX_0" : 0x05,
@@ -44,7 +44,7 @@ offsets = {
     "O"     : 0x111,
     "I"     : 0x112,
     "UP"    : 0x13A,
-    "UP_EN" : 0x148,
+    "UP_EN" : 0x148
     #"DS_0A" : 0x1D0,
     #"MUX_0" : 0x1B0,
     #"MUX_1" : 0x1B1
@@ -55,7 +55,7 @@ offsets = {
     "O"     : 0x114,
     "I"     : 0x115,
     "UP"    : 0x13B,
-    "UP_EN" : 0x149,
+    "UP_EN" : 0x149
     #"DS_1A" : 0x1D1,
     #"MUX_9" : 0x1B9
     },
@@ -65,7 +65,7 @@ offsets = {
     "O"     : 0x117,
     "I"     : 0x118,
     "UP"    : 0x13C,
-    "UP_EN" : 0x14A,
+    "UP_EN" : 0x14A
     #"DS_2A" : 0x1D2,
     #"DS_2B" : 0x1D3,
     #"MUX_3" : 0x1B3,
@@ -78,7 +78,7 @@ offsets = {
     "O"     : 0x11A,
     "I"     : 0x11B,
     "UP"    : 0x13D,
-    "UP_EN" : 0x14B,
+    "UP_EN" : 0x14B
     #"DS_3A" : 0x1D4,
     #"MUX_B" : 0x1BB,
     #"MUX_C" : 0x1BC
@@ -89,7 +89,7 @@ offsets = {
     "O"     : 0x11D,
     "I"     : 0x11E,
     "UP"    : 0x13E,
-    "UP_EN" : 0x14C,
+    "UP_EN" : 0x14C
     #"DS_4A" : 0x1D5,
     #"MUX_6" : 0x1B6,
     #"MUX_7" : 0x1B7
@@ -100,7 +100,7 @@ offsets = {
     "O"     : 0x121,
     "I"     : 0x122,
     "UP"    : 0x13F,
-    "UP_EN" : 0x14D,
+    "UP_EN" : 0x14D
     #"DS_5A" : 0x1D6,
     #"MUX_D" : 0x1BD,
     #"MUX_E" : 0x1BE

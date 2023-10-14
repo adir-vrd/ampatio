@@ -121,23 +121,27 @@ class Pin():
 
 
   def alt_fun_off(self) -> None:
-    """ function to set output to low level (also as input with high level signals) """
+    """ function to set output to low level
+        also set the input register as high level signal """
     self._O_EN.value &= self._O_EN_not
 
   def alt_fun_on(self) -> None:
-    """ function to set output to high level (also as input with low level signals) """
+    """ function to set output to high level
+        also set the input register as low level signal """
     self._O_EN.value |= self._O_EN_top
 
   def off(self) -> None:
-    """ function to set output to low level (also as input with high level signals) """
+    """ function to set output to low level
+        also set the input register as high level signal """
     self._O.value &= self._O_not
 
   def on(self) -> None:
-    """ function to set output to high level (also as input with low level signals) """
+    """ function to set output to high level
+        also set the input register as low level signal """
     self._O.value |= self._O_top
 
   def toggle(self) -> None:
-    """ function to toggle output from low to high level and from high to low level """
+    """ function to toggle output or input from low to high level and from high to low level """
     self._O.value ^= self._O_top
 
   def level(self) -> bool:
@@ -164,12 +168,14 @@ class Pin():
 
 
 class LED(Pin):
-  """ pre defind LED class based on Pin class """
+  """ pre defind LED class based on Pin class
+      writing this pin is done by the LED.on()/off()/toggle() methods"""
   def __init__(self, pin: int):
     super().__init__(pin, 2, 2, 3)
 
 
 class BTN(Pin):
-  """ pre defind Button class based on Pin class """
+  """ pre defind Button class based on Pin class
+      reading this pin is done by the BTN.level() method"""
   def __init__(self, pin: int):
     super().__init__(pin, 2, 1, 1)

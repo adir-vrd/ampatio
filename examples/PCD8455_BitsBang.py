@@ -12,17 +12,18 @@
 import AMPatio as amp
 from time import sleep as delay
 
+
 # get & set the board file name from AMPatio/boards folder
 # my board is Odroid C4 Rev1 so . . . what's yours?
 C4 = amp.board_loads('Odroid_C4')
 amp.gpio.Setup(C4)
 
 # set the soft SPI pins on the Odroid C4 board
-CLK = amp.gpio.Pin(11,2,2,3) # GPIO_X 3  # SPI-Clock
-DIN = amp.gpio.Pin(12,2,2,3) # GPIO_X 16 # SPI-MOSI
-DC  = amp.gpio.Pin(13,2,2,3) # GPIO_X 4  # The Data OR Command set pin
-CE  = amp.gpio.Pin(15,2,2,3) # GPIO_X 7  # SPI-CS
-RES = amp.gpio.Pin(16,2,2,3) # GPIO_X 0  # Reset
+CLK = amp.gpio.Pin(11) # GPIO_X 3  # SPI-Clock
+DAT = amp.gpio.Pin(12) # GPIO_X 16 # SPI-MOSI
+DOC = amp.gpio.Pin(13) # GPIO_X 4  # The Data OR Command set pin
+CS  = amp.gpio.Pin(15) # GPIO_X 7  # SPI-CS
+RES = amp.gpio.Pin(16) # GPIO_X 0  # Reset
 
 # Constants parameters
 X_RANGE = 84
@@ -31,21 +32,23 @@ LCD_CONTRAST = 0xC0
 LCD_SIZE = int(X_RANGE*Y_RANGE/8)
 LCD_MEMORY = [0 for i in range(LCD_SIZE)]
 
+
 # SPI function
 def send(data, i=0):
   for i in range(1,9):
-    DIN.on() if (data & 0x80) else DIN.off()
+    DAT.on() if (data & 0x80) else DAT.off()
     CLK.off()
     CLK.on()
     data = data << 1
   return
 
+
 # LCD functions
-def command(cmd):
-  CE.off()
-  DC.off()
-  send(cmd)
-  CE.on()
+def command(data, char=False):
+  CS.off()
+  DOC.on() if char else DOC.off()
+  send(data)
+  CS.on()
 
 def contrast(level):
   command(0x21)
@@ -63,13 +66,10 @@ def update(x=0,y=0):
     command(0x80)
     command(0x40|(y+1))
     for x in range(X_RANGE):
-      CE.off()
-      DC.on()
-      send(LCD_MEMORY[y*X_RANGE+x])
-      CE.on()
+      command(LCD_MEMORY[y*X_RANGE+x], False)
 
 def reset():
-  CE.on()
+  CS.on()
   RES.off()
   delay(1)
   RES.on()
@@ -87,6 +87,7 @@ def reset():
   contrast(LCD_CONTRAST)
   clear()
   update()
+
 
 # CGI functions
 def drawPoint(x,y):
@@ -124,12 +125,8 @@ def drawRect(x1,y1,x2,y2):
   drawLine(x2,y1,x2,y2)
   drawLine(x1,y2,x2,y2)
 
+
 # Drawing test...
 reset()
-delay(1)
-drawRect(0,0,8,8)
+drawLine(1,1,80,40)
 update()
-#for p in range(10):
-#  drawRect(p,p,p+8,p+8)
-#  update()
-#  clear()
