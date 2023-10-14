@@ -1,0 +1,69 @@
+{
+  "SBC" : "Khadas VIM 3",
+  "SOC" : "A311D",
+  "GPIO" : [
+    {"_"  :null},
+    {"5V0":null},
+    {"5V0":null},
+    {"USB":null},
+    {"USB":null},
+    {"GND":null},
+    {"MCU":null},
+    {"MCU":null},
+    {"MCU":null},
+    {"GND":null},
+    {"ADC":0   },
+    {"1V8":null},
+    {"ADC":3   },
+    {"DIF":null},
+    {"GND":null},
+    {"H"  :6   },
+    {"H"  :7   },
+    {"GND":null},
+    {"LRX":null},
+    {"LTX":null},
+    {"3V3":null},
+    {"GND":null},
+    {"A"  :15  },
+    {"A"  :14  },
+    {"GND":null},
+    {"AO" :2   },
+    {"AO" :3   },
+    {"3V3":null},
+    {"GND":null},
+    {"A"  :1   },
+    {"A"  :0   },
+    {"A"  :3   },
+    {"A"  :2   },
+    {"A"  :4   },
+    {"GND":null},
+    {"X"  :7   },
+    {"RTC":null},
+    {"H"  :4   },
+    {"MCU":null},
+    {"Z"  :15  },
+    {"GND":null}
+    ],
+  "AF" : {
+    "SPI" : [
+      {"MOSI" : 0, "MISO" : 0, "SCLK" : 0, "CS0" : 0, "CS1" : 0}
+      ],
+    "IIC" : [
+      {"SDA" : 23, "SCL" : 22},
+      {"SDA" : 26, "SCL" : 25}
+      ],
+    "UART" : [
+      {"TX" : 16, "RX" : 15}
+      ],
+    "PWM" : {
+      "A" : 0,
+      "B" : 0,
+      "C" : 0,
+      "D" : 0,
+      "E" : 0,
+      "F" : 35
+      },
+    "IRB" : 0,
+    "IRD" : 0
+    }
+  }

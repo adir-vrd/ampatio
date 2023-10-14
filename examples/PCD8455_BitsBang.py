@@ -126,10 +126,10 @@ def drawRect(x1,y1,x2,y2):
 
 # Drawing test...
 reset()
-delay(2)
-drawPoint(4,4)
+delay(1)
+drawRect(0,0,8,8)
 update()
-for p in range(10):
-  drawRect(p,p,p+8,p+8)
-  update()
+#for p in range(10):
+#  drawRect(p,p,p+8,p+8)
+#  update()
 #  clear()
