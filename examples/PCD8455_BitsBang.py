@@ -12,18 +12,17 @@
 import AMPatio as amp
 from time import sleep as delay
 
-
 # get & set the board file name from AMPatio/boards folder
 # my board is Odroid C4 Rev1 so . . . what's yours?
 C4 = amp.board_loads('Odroid_C4')
 amp.gpio.Setup(C4)
 
 # set the soft SPI pins on the Odroid C4 board
-CLK = amp.gpio.Pin(11) # GPIO_X 3  # SPI-Clock
-DAT = amp.gpio.Pin(12) # GPIO_X 16 # SPI-MOSI
-DOC = amp.gpio.Pin(13) # GPIO_X 4  # The Data OR Command set pin
-CS  = amp.gpio.Pin(15) # GPIO_X 7  # SPI-CS
-RES = amp.gpio.Pin(16) # GPIO_X 0  # Reset
+CLK = amp.gpio.Pin(11,2,1,3) # Clock
+DAT = amp.gpio.Pin(12,2,1,3) # MOSI
+DOC = amp.gpio.Pin(13,2,1,3) # Data OR Command
+CS  = amp.gpio.Pin(15,2,1,3) # CS
+RES = amp.gpio.Pin(16,2,1,3) # Reset
 
 # Constants parameters
 X_RANGE = 84
@@ -31,7 +30,6 @@ Y_RANGE = 48
 LCD_CONTRAST = 0xC0
 LCD_SIZE = int(X_RANGE*Y_RANGE/8)
 LCD_MEMORY = [0 for i in range(LCD_SIZE)]
-
 
 # SPI function
 def send(data, i=0):
@@ -41,7 +39,6 @@ def send(data, i=0):
     CLK.on()
     data = data << 1
   return
-
 
 # LCD functions
 def command(data, char=False):
@@ -88,7 +85,6 @@ def reset():
   clear()
   update()
 
-
 # CGI functions
 def drawPoint(x,y):
   row = int(y/8)
@@ -128,5 +124,5 @@ def drawRect(x1,y1,x2,y2):
 
 # Drawing test...
 reset()
-drawLine(1,1,80,40)
+drawLine(0,0,83,47)
 update()
