@@ -121,7 +121,6 @@ def drawRect(x1,y1,x2,y2):
   drawLine(x2,y1,x2,y2)
   drawLine(x1,y2,x2,y2)
 
-
 # Drawing test...
 reset()
 drawLine(0,0,83,47)

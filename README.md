@@ -34,7 +34,7 @@ To do so, it's require from us to recompile the Linux kernel, but until i would 
 ## Performence
 
 The test is simply driving a selected Pin to on & off state a million times.
-which result in 4.582 Seconds, Not bad at all for the slowly snake we play with :)
+which result around 3.0 Seconds, Not bad at all for the slowly snake we play with :)
 
 Importent! i did test my lib only on my Odroid C4 board.
 

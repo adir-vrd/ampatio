@@ -13,7 +13,7 @@ amp.gpio.Setup(C4)
 
 # set the pin
 # will test pin number 16 from the 40 pins header found on the Odroid C4 board
-tpin = amp.gpio.Pin(16, 2, 2, 3)
+tpin = amp.gpio.Pin(18, 2, 1, 3)
 
 PS = time.process_time() # Start write read loop timer
 # Do a 1 milion loops with read-write to the pin
