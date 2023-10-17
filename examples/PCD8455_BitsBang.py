@@ -18,10 +18,10 @@ C4 = amp.board_loads('Odroid_C4')
 amp.gpio.Setup(C4)
 
 # set the soft SPI pins on the Odroid C4 board
-CLK = amp.gpio.Pin(11,2,1,3) # Clock
-DAT = amp.gpio.Pin(12,2,1,3) # MOSI
+CLK = amp.gpio.Pin(11,2,1,3) # SPI-Clock
+DAT = amp.gpio.Pin(12,2,1,3) # SPI-MOSI
 DOC = amp.gpio.Pin(13,2,1,3) # Data OR Command
-CS  = amp.gpio.Pin(15,2,1,3) # CS
+CS  = amp.gpio.Pin(15,2,1,3) # SPI-CS
 RES = amp.gpio.Pin(16,2,1,3) # Reset
 
 # Constants parameters
