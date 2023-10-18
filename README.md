@@ -22,8 +22,8 @@ since linux /dev/mem can be only accessd and manipulated as root only.
 - WIP... in hope to show new & related fetures soon in this section.
 
 **IRB/IRD:** *Infra-Red Blaster / Decoder*
-  to use the Hardware IR fetures i need know how to set MUX (a.k.a. Alternative Function) before use.
-  it will be avialble only for "A311D, S905D3, S905X3, S922X" SOCs based boards.
+- to use the Hardware IR fetures i need know how to set MUX (a.k.a. Alternative Function) before use.
+it will be avialble only for "A311D, S905D3, S905X3, S922X" SOCs based boards.
 
 **Serial:**
 - Hardware IIC(i2c), SPI & UART interfaces - are not yet implemented.
