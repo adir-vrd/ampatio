@@ -29,7 +29,7 @@ it will be avialble only for "A311D, S905D3, S905X3, S922X" SOCs based boards.
 - Hardware IIC(i2c), SPI & UART interfaces - are not yet implemented.
 
 *Note*
-To get more info of yours SOC memory address look at /sys/devices/platform/soc or /proc/iomem
+- To get more info of yours SOC memory address look at /sys/devices/platform/soc or /proc/iomem
 
 
 ## Performence
