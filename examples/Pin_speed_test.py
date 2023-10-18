@@ -16,10 +16,12 @@ amp.gpio.Setup(C4)
 tpin = amp.gpio.Pin(18, 2, 1, 3)
 
 PS = time.process_time() # Start write read loop timer
+
 # Do a 1 milion loops with read-write to the pin
 for i in range(1000000):
   tpin.on()
   tpin.off()
+
 PE = time.process_time() # End write read loop timer
 
 # print the loops timers

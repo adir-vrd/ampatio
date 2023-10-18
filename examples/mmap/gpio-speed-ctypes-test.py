@@ -22,7 +22,8 @@ ps = time.process_time()
 
 # toggle the pin out value for 1 milion times
 for i in range(1000000):
-  outpin.value ^= pin
+  outpin.value |= pin # pin set to high / ON
+  outpin.value &= ~pin # pin set to low / OFF
 
 # stop the timer
 pe = time.process_time()
