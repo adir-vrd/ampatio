@@ -11,12 +11,13 @@ since linux /dev/mem can be only accessd and manipulated as root only.
 
 
 ## 2-Do list
-- move from importlib to pkgutil
-- add functions to do buffer read & write
-- add relevant "dungen" functions
+- move from importlib to pkgutil.
+- fix setup file.
+- add functions to do buffer read & write.
+- add relevant "dungen" functions.
 
 **GPIO:**
-- add occupied and release pin functions (by recording json file in /tmp folder)
+- add occupied and release pin functions (by recording json file in /tmp folder).
 
 **ADC** *Analog to Digital converter spaciel pins*
 - WIP... in hope to show new & related fetures soon in this section.
@@ -29,7 +30,7 @@ it will be avialble only for "A311D, S905D3, S905X3, S922X" SOCs based boards.
 - Hardware IIC(i2c), SPI & UART interfaces - are not yet implemented.
 
 *Note*
-- To get more info of yours SOC memory address look at /sys/devices/platform/soc or /proc/iomem
+- To get more info of yours SOC memory address look at /sys/devices/platform/soc or /proc/iomem.
 
 
 ## Performence
