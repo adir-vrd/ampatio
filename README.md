@@ -9,25 +9,30 @@ for How-To access the GPIO take a fast look at the examples folder.
 Importent! this module/liberary can only be run only as root user!
 since linux /dev/mem can be only accessd and manipulated as root only.
 
-To get more info of your soc memory address look at /sys/devices/platform/soc or /proc/iomem
 
-
-## 2-Do
-*gpio:*
+## 2-Do list
 - move from importlib to pkgutil
-- add occupied and release pin functions (by recording json file in /tmp folder)
 - add functions to do buffer read & write
 - add relevant "dungen" functions
 
-**irb/ird: (Infra-Red Blaster/Decoder)**
-- for now meson IR modules are removable in mainline kernel (Archlinux-AARCH64) but not implemented yet here.
-  also need to set MUX (a.k.a. Alternative Function) before use.
-  available only with "A311D, S905D3, S905X3, S922X" SOCs based boards. (WIP)
+**GPIO:**
+- add occupied and release pin functions (by recording json file in /tmp folder)
 
+**ADC** *Analog to Digital converter spaciel pins*
+- WIP... in hope to show new & related fetures soon in this section.
+
+**IRB/IRD:** *Infra-Red Blaster / Decoder*
+  to use the Hardware IR fetures i need know how to set MUX (a.k.a. Alternative Function) before use.
+  it will be avialble only for "A311D, S905D3, S905X3, S922X" SOCs based boards.
+
+**Serial:**
+- Hardware IIC(i2c), SPI & UART interfaces - are not yet implemented.
+
+*Note*
+To get more info of yours SOC memory address look at /sys/devices/platform/soc or /proc/iomem
 
 
 ## Performence
-
 The test is simply driving a selected Pin to on & off state a million times.
 which result around 3.0 Seconds, Not bad at all for the slowly snake we play with :)
 
