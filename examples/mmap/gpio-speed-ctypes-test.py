@@ -2,31 +2,37 @@
 
 import time, mmap, ctypes
 
+# open the memory region of the gpio we want to play with
 with open('/dev/mem', 'r+b') as fd:
   region = mmap.mmap(fd.fileno(), (1024*4), offset=0xFF634000)
 
-ctypes.c_uint32.from_buffer(region, 0x116 * 4).value = 0
-ctypes.c_uint32.from_buffer(region, 0x14A * 4).value = 0
+# set the real header pin number found on the dev board
+# and set the register var to play with later
+pin = 1<<(1-1)
+outpin = ctypes.c_uint32.from_buffer(region, 0x117 * 4)
 
-pin = ctypes.c_uint32.from_buffer(region, 0x117 * 4)
-pof = 0
-pon = 1
+# set pin to gpio mode at register 0x116 ("EN_O" register)
+ctypes.c_uint32.from_buffer(region, 0x116 * 4).value &= ~pin
 
+# set pin without pull-up resistor at register 0x14A ("UP_EN" register)
+ctypes.c_uint32.from_buffer(region, 0x14A * 4).value &= ~pin
+
+# start the timer
 ps = time.process_time()
 
+# toggle the pin out value for 1 milion times
 for i in range(1000000):
-  pin.value = pof
-  pin.value = pon
+  outpin.value ^= pin
 
+# stop the timer
 pe = time.process_time()
 
+# print the timer result
 print("Total time for ctype loop: ", round(pe-ps, 3))
 
 
 
-
-
-#CTYPES
+# few comments on basic read & write how to with ctypes
 #  #read
 #  ctypes.c_uint32.from_buffer(region, (offset*4)).value
 #
