@@ -13,7 +13,7 @@ To get more info of your soc memory address look at /sys/devices/platform/soc or
 
 
 ## 2-Do
-gpio:
+*gpio:*
 - move from importlib to pkgutil
 - add occupied and release pin functions (by recording json file in /tmp folder)
 - add functions to do buffer read & write
