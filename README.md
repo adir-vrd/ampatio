@@ -9,6 +9,7 @@ for How-To access the GPIO take a fast look at the examples folder.
 Importent! this module/liberary can only be run only as root user!
 since linux /dev/mem can be only accessd and manipulated as root only.
 
+To get more info of your soc memory address look at /sys/devices/platform/soc or /proc/iomem
 
 
 ## 2-Do
@@ -22,12 +23,6 @@ gpio:
 - for now meson IR modules are removable in mainline kernel (Archlinux-AARCH64) but not implemented yet here.
   also need to set MUX (a.k.a. Alternative Function) before use.
   available only with "A311D, S905D3, S905X3, S922X" SOCs based boards. (WIP)
-
-### 2-Do Major note
-Most of the hardware that will be present soon in the examples folder will used to pass data by BitBang method only for now.
-To use "SPI/IIC/UART/ADC/PWM" we need to set those meson modules in the kernel as dynamically loaded.
-To do so, it's require from us to recompile the Linux kernel, but until i would do so i wrote only the GPIO part.
-(also look at /sys/devices/platform/soc or /proc/iomem)
 
 
 
