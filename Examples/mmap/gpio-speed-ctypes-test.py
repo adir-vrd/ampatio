@@ -1,21 +1,23 @@
 #!/bin/python
 
-import time, mmap, ctypes
+import time, mmap
+from ctypes import c_uint32, pointer
 
 # open the memory region of the gpio we want to play with
 with open('/dev/mem', 'r+b') as fd:
   region = mmap.mmap(fd.fileno(), (1024*4), offset=0xFF634000)
 
 # set the real header pin number found on the dev board
-# and set the register var to play with later
 pin = 1<<(1-1)
-outpin = ctypes.c_uint32.from_buffer(region, 0x117 * 4)
 
 # set pin to gpio mode at register 0x116 ("EN_O" register)
-ctypes.c_uint32.from_buffer(region, 0x116 * 4).value &= ~pin
+c_uint32.from_buffer(region, 0x116 * 4).value &= ~pin
 
 # set pin without pull-up resistor at register 0x14A ("UP_EN" register)
-ctypes.c_uint32.from_buffer(region, 0x14A * 4).value &= ~pin
+c_uint32.from_buffer(region, 0x14A * 4).value &= ~pin
+
+# set the register pointer to play with
+outpin = pointer(c_uint32.from_buffer(region, 0x117 * 4)).contents
 
 # start the timer
 ps = time.process_time()

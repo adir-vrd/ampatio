@@ -20,7 +20,8 @@ from mmap import mmap as _mm
 from importlib import import_module as _il
 #from pkgutil import get_data as _pugd
 #from ast import literal_eval as _astle
-from ctypes import c_uint32 as _ct
+from ctypes import c_uint32 as _cui
+#from ctypes import pointer as _ptr
 
 __name__ = "GPIO"
 
@@ -72,18 +73,18 @@ class Pin():
           if (i == "I"):
             self.bin = self.bit + shift
           else:
-            setattr(self, "_"+i+"_top", _ct(1<<(self.bit+shift)).value)
-            setattr(self, "_"+i+"_not", _ct(~(1<<(self.bit+shift))).value)
+            setattr(self, "_"+i+"_top", _cui(1<<(self.bit+shift)).value)
+            setattr(self, "_"+i+"_not", _cui(~(1<<(self.bit+shift))).value)
       except:
         if (i == "I"):
           self.bin = self.bit
         else:
-          setattr(self, "_"+i+"_top", _ct(1<<self.bit).value)
-          setattr(self, "_"+i+"_not", _ct(~(1<<self.bit)).value)
+          setattr(self, "_"+i+"_top", _cui(1<<self.bit).value)
+          setattr(self, "_"+i+"_not", _cui(~(1<<self.bit)).value)
       finally:
         # set the pin control type registers & they offsets (fixd memory pointers)
         # as in the datasheets the offset is multpile by 4
-        setattr(self, "_"+i, _ct.from_buffer(_region, device.offsets[self.register][i] * 4))
+        setattr(self, "_"+i, _cui.from_buffer(_region, device.offsets[self.register][i] * 4))
 
     # set type of the output function (MUX or GPIO)
     if (EN != 0):
