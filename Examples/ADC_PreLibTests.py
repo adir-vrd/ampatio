@@ -1,7 +1,9 @@
 #!/bin/python
 
 import mmap
+
 from ctypes import c_uint32 as _cui
+from ctypes import pointer as _ptr
 
 buffer = _cui.from_buffer
 
@@ -21,4 +23,5 @@ def rolAdrs(stackAdr, pin=32, pinStart=0):
 
 #memoryview(region).hex()
 #buffer(region, 0 * 4).value ^= (1<<0)
-#ptrTest = _cui.pointers(buffer(region,0*4))
+adr0Ptr = _ptr(buffer(region,0*4)).contents
+print(adr0Ptr.value)
